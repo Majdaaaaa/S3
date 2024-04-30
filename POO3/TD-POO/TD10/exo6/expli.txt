@@ -1,0 +1,22 @@
+1.
+List<A> la=new ArrayList<A>();
+la.add(new A());
+List<? extends A> lea=la;
+
+A o =lea.get(0); //safe
+les elements de lea: A est ancetre des elements de lea
+.pour l'ajout: seul null peut etre ajouter
+2.
+List<A> la=new ArrayList<A>();
+la.add(new A());
+List<? super A> lsa=la;
+
+Object o=lsa.get(o);
+par defaut, on a pas assez d'info sur le type d'objet qui a crée lsa
+par contre on peut rajouter sans probleme a lsa des elements de type A ou des elements de ses classes descendantes
+
+3. A n'as pas de raison d'etre contenue dans B
+4. A est ancetre de B
+. B est contenue dans ? extends A ?
+B--> ? extends B --> ? extends A --> A <-- B
+B herite de A

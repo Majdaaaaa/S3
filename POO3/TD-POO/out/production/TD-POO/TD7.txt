@@ -1,0 +1,39 @@
+EXO1:
+1. En dehors de A:
+    a.  A.B a=new A();
+        b=a.new B();   
+        crée une instance de B par rapport a une instance de A (on dit qu'elle est englobée)  
+    b.  A.C c= new A.C();  
+        psq C est static donc on l'appelle de facon static
+    c. 
+        1.invoc sur b la methode miB:   b.miB();
+        2.invoc sur c de miC:   c.miC();
+        3.invoc sur b de msB:   A.B.msB();
+        4.invoc sur c de msC:   A.C.msC();
+
+A l'interieur de A:
+    a.  B b=a.new B();
+    b.  C c=new C();
+    c. 
+        1.invoc sur b la methode miB:   b.miB();
+        2.invoc sur c de miC:   c.miC();
+        3.invoc sur b de msB:   B.msB();
+        4.invoc sur c de msC:   C.msC();
+2.
+    a.Dans la methode miB de la classe interne B:   oui, A.this.miA();
+    b.Dans la methode miC de la classe interne C:   non, l'instance de C n'accede qu'aux element static de A !!
+    c.Dans la methode msB de la classe interne B:   non,  on peut pas invoquer une methode non static dans une methode static  
+    d.Dans la methode msC de la classe interne C:   non, pareil
+
+3.comment acceder aux champs static:
+    A l'extieur de A:
+        a.  sA: A.sA;
+        b.  sB: A.B.sA;
+        c.  sC: A.C.sA;
+    Dans la classe A:
+        a.  sA: sA;
+        b.  sB: B.sA;
+        c.  sC: C.sA;
+4.une instance de B possede-t-elle un champs iA?   oui, on peut ecrire iA dans la classe B, mais c'est trompeur c'est A.this.iA;
+5.le champs static sB peut il etre declaré non final?   Les champs statiques d'une classe interne non statique doivent etre final.
+

@@ -1,0 +1,15 @@
+void m(List<A> la){...}
+//ailleurs dans le code
+List<B> lb=new ArrayList<B>();   les classes des  elements de lb doivent etre des descendant de B
+//...
+B b=lb.get(0);  la methode .get() doit renvoyer des instances de cette classe ! (ou null)
+
+Si dans la methode m, on pouvais invoquer des choses de type list<B> on serai entrain de corompre le contenu de lb psq on peut ajouter des element de A (erreur renvoyer ClassCastException)
+
+Rappel de cours:
+Covariance:
+si B est un sous-type de A, alors C<B> n'est pas un sous type de C<A>!
+Les 
+B sous-type de A, B[] est un sous type de A[] 
+
+
